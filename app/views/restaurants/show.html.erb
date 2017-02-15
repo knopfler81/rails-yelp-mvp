@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+    <h1>This is the page for <%= @restaurant.name %></h1>
+
+      <p>Adresse: <%= @restaurant.address %></p>
+      <p>Phone Number:<%= @restaurant.phone_number %></p>
+      <p>Catégorie: <%= @restaurant.category %> </p>
+
+  </div>
+</div>
+
+<div class="row ">
+
+  <% @restaurant.reviews.each do |review| %>
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1 card-reviews">
+      <p> <strong>Rating:</strong> <%= review.rating %></p>
+      <p><%= review.content %></p>
+   <% end %>
+  </div>
+ <%= link_to  "Poster une review", new_restaurant_review_path(@restaurant), class:"btn btn-primary"  %>
+</div>
+
